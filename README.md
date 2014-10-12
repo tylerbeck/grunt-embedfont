@@ -18,7 +18,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ```
 brew install ttfautohint fontforge --with-python
-npm install grunt-webfont --save-dev
+npm install grunt-embedfont --save-dev
 ```
 
 *You may need to use `sudo` for `brew`, depending on your setup.*
@@ -27,7 +27,7 @@ npm install grunt-webfont --save-dev
 
 ```
 sudo apt-get install fontforge ttfautohint --with-python
-npm install grunt-webfont --save-dev
+npm install grunt-embedfont --save-dev
 ```
 
 ### Windows
