@@ -14,8 +14,6 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 
 ## Installation
 
-This plugin requires Grunt 0.4. Note that `ttfautohint` is optional, but your generated font will not be properly hinted if it’s not installed.
-
 ### OS X
 
 ```
