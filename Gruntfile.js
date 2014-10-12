@@ -31,49 +31,79 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     embedfont: {
-        default: {
-	        options:{
-		        fontPath: 'tmp/fonts',
-		        stylePath: 'tmp/less',
-		        relPath: '../fonts',
-		        output: 'less',
-		        reformatNames: false,
-		        fontTypes: ['ttf','woff', 'eot','svg']
-	        },
-	        fonts: {
-		        OpenSans: {
-			        normal: {
-				        '200': 'test/src/fonts/OpenSans/OpenSans-Light.ttf',
-				        '400': 'test/src/fonts/OpenSans/OpenSans-Regular.ttf',
-				        '700': 'test/src/fonts/OpenSans/OpenSans-Bold.ttf'
-			        },
-			        italic: {
-				        '200': 'test/src/fonts/OpenSans/OpenSans-LightItalic.ttf',
-				        '400': 'test/src/fonts/OpenSans/OpenSans-Italic.ttf',
-				        '700': 'test/src/fonts/OpenSans/OpenSans-BoldItalic.ttf'
-			        }
-		        },
-		        Quicksand: {
-			        normal: {
-				        '200': 'test/src/fonts/Quicksand/Quicksand-Light.otf',
-				        '400': 'test/src/fonts/Quicksand/Quicksand-Regular.otf',
-				        '700': 'test/src/fonts/Quicksand/Quicksand-Bold.otf'
-			        },
-			        italic: {
-				        '200': 'test/src/fonts/Quicksand/Quicksand-LightItalic.otf',
-				        '400': 'test/src/fonts/Quicksand/Quicksand-Italic.otf',
-				        '700': 'test/src/fonts/Quicksand/Quicksand-BoldItalic.otf'
-			        }
-		        },
+	    convert: {
+		    options:{
+			    fontPath: 'tmp/convert/fonts',
+			    stylePath: 'tmp/convert/less',
+			    relPath: '../fonts',
+			    output: 'less',
+			    reformatNames: false,
+			    fontTypes: ['ttf','woff', 'eot','svg']
+		    },
+		    fonts: {
+			    OpenSans: {
+				    normal: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-Light.ttf'
+				    }
+			    },
+			    Quicksand: {
+				    normal: {
+					    '200': 'test/fixtures/fonts/Quicksand/Quicksand-Light.otf'
+				    }
+			    }
+		    }
 
-		        "Quicksand-Dash": {
-			        normal: {
-				        '400': 'test/src/fonts/Quicksand/Quicksand_Dash.otf'
-			        }
-		        }
-	        }
+	    },
+	    css: {
+		    options:{
+			    fontPath: 'tmp/css/fonts',
+			    stylePath: 'tmp/css/css',
+			    relPath: '../fonts',
+			    output: 'css',
+			    reformatNames: false,
+			    fontTypes: ['ttf','woff', 'eot','svg']
+		    },
+		    fonts: {
+			    OpenSans: {
+				    normal: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-Light.ttf',
+					    '400': 'test/fixtures/fonts/OpenSans/OpenSans-Regular.ttf',
+					    '700': 'test/fixtures/fonts/OpenSans/OpenSans-Bold.ttf'
+				    },
+				    italic: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-LightItalic.ttf',
+					    '400': 'test/fixtures/fonts/OpenSans/OpenSans-Italic.ttf',
+					    '700': 'test/fixtures/fonts/OpenSans/OpenSans-BoldItalic.ttf'
+				    }
+			    }
+		    }
+	    },
+	    less: {
+		    options:{
+			    fontPath: 'tmp/less/fonts',
+			    stylePath: 'tmp/less/less',
+			    relPath: '../fonts',
+			    output: 'less',
+			    reformatNames: false,
+			    fontTypes: ['ttf','woff', 'eot','svg']
+		    },
+		    fonts: {
+			    OpenSans: {
+				    normal: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-Light.ttf',
+					    '400': 'test/fixtures/fonts/OpenSans/OpenSans-Regular.ttf',
+					    '700': 'test/fixtures/fonts/OpenSans/OpenSans-Bold.ttf'
+				    },
+				    italic: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-LightItalic.ttf',
+					    '400': 'test/fixtures/fonts/OpenSans/OpenSans-Italic.ttf',
+					    '700': 'test/fixtures/fonts/OpenSans/OpenSans-BoldItalic.ttf'
+				    }
+			    }
+		    }
+	    }
 
-        }
+
     },
 
     // Unit tests.

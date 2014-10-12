@@ -1,0 +1,11 @@
+<% _.each( font.faces, function( face ){ %>@font-face {
+    font-family: '<%- font.name %>';
+    <% if (font.types.indexOf('eot') >= 0) { %>src: url(<%- face.path %>.eot);<% } %>
+    src: <% if (font.types.indexOf('eot') >= 0) { %>url(<%- face.path %>.eot?#iefix) format('embedded-opentype'),
+         <% } %><% if (font.types.indexOf('woff') >= 0) {%>url(<%- face.path %>.woff) format('woff'),
+         <% } %><% if (font.types.indexOf('ttf') >= 0) {%>url(<%- face.path %>.ttf) format('truetype'),
+         <% } %><% if (font.types.indexOf('svg') >= 0) {%>url(<%- face.path %>.svg#<%- font.name %>) format('svg')<% } %>;
+    font-weight: <%- face.weight %>;
+    font-style: <%- face.style %>;
+}
+<% } ); %>

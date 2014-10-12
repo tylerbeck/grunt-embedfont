@@ -1,0 +1,28 @@
+.EmbedOpenSans( @path, @weight: normal, @style: normal ){
+	@font-face {
+		@f: ~"@{path}.";
+		@name: OpenSans;
+		font-family: 'OpenSans';
+		src: url(~"@{f}eot");
+		src: url(~"@{f}eot?#iefix") format('embedded-opentype'),
+			 url(~"@{f}woff") format('woff'),
+			 url(~"@{f}ttf") format('truetype'),
+			 url(~"@{f}svg#@{name}") format('svg');
+		font-weight: @weight;
+		font-style: @style;
+	}
+}
+
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-Light", 200, normal );
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-Regular", 400, normal );
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-Bold", 700, normal );
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-LightItalic", 200, italic );
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-Italic", 400, italic );
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-BoldItalic", 700, italic );
+
+
+.OpenSans( @weight: normal, @style: normal ) {
+	font-family: "OpenSans";
+	font-weight: @weight;
+	font-style: @style;
+}

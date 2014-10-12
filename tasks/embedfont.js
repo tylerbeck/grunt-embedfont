@@ -160,7 +160,7 @@ module.exports = function( grunt ) {
 			if ( grunt.file.exists( templatePath ) ){
 				var template = _.template( grunt.file.read( templatePath ) );
 				var style = template( font );
-				grunt.file.write( path.join( options.stylePath, name+".less" ), style )
+				grunt.file.write( path.join( options.stylePath, name+"."+options.output ), style )
 			}
 			else{
 				throw new Error("Couldn't find "+options.output+".template");

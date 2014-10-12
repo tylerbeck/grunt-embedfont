@@ -33,27 +33,34 @@ function fileExists( path, msg  ){
 exports.embedfont = {
 
 	//tests based on the default embedfont task
-	default: {
+	convert: {
+		convert_ttf_to_ttf: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
+		convert_ttf_to_woff: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
+		convert_ttf_to_eot: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.eot", "EOT fonts should have be generated from TTF source."),
+		convert_ttf_to_svg: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.svg", "SVG fonts should have be generated from TTF source."),
 
-		setUp: function(done) {
-			// setup here if necessary
-			done();
-		},
-		tearDown: function (done) {
-			// clean up
-			done();
-		},
+		convert_otf_to_ttf: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
+		convert_otf_to_woff: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
+		convert_otf_to_eot: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
+		convert_otf_to_svg: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source.")
+	},
 
-		encoding_ttf_to_ttf: fileExists( "tmp/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
-		encoding_ttf_to_woff: fileExists( "tmp/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
-		encoding_ttf_to_eot: fileExists( "tmp/fonts/OpenSans/OpenSans-Light.eot", "EOT fonts should have be generated from TTF source."),
-		encoding_ttf_to_svg: fileExists( "tmp/fonts/OpenSans/OpenSans-Light.svg", "SVG fonts should have be generated from TTF source."),
+	css: {
+		css_generated: function( test ){
+			var expected = grunt.file.read("test/fixtures/css/OpenSans.css");
+			var actual = grunt.file.read("tmp/css/css/OpenSans.css");
+			test.equal( actual, expected, "The generated CSS does not match the expected CSS.");
+			test.done();
+		}
+	},
 
-		encoding_otf_to_ttf: fileExists( "tmp/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
-		encoding_otf_to_woff: fileExists( "tmp/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
-		encoding_otf_to_eot: fileExists( "tmp/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
-		encoding_otf_to_svg: fileExists( "tmp/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source.")
-
+	less: {
+		less_generated: function( test ){
+			var expected = grunt.file.read("test/fixtures/less/OpenSans.less");
+			var actual = grunt.file.read("tmp/less/less/OpenSans.less");
+			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
+			test.done();
+		}
 	}
 
 };
