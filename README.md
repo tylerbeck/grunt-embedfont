@@ -2,6 +2,11 @@
 
 > Create web-embeddable font files and css.
 
+## Usage Notice
+Before converting fonts for embedding, please ensure that you are allowed to do so.
+End-users of this software are solely responsible for securing and maintaining the right to convert and embed fonts from the copyright holder.
+
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
