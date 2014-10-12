@@ -1,0 +1,33 @@
+.Embed<%- font.name %>( @path, @weight: normal, @style: normal ){
+	@font-face {
+		@f: ~"@{path}.";
+		@name: <%- font.name %>;
+		font-family: '<%- font.name %>';
+<% if (font.types.indexOf('eot') >= 0) {%>
+		src: url(~"@{f}eot");
+		src: url(~"@{f}eot?#iefix") format('embedded-opentype'),
+<% } %>
+<% if (font.types.indexOf('woff') >= 0) {%>
+		url(~"@{f}woff") format('woff'),
+	<% } %>
+<% if (font.types.indexOf('ttf') >= 0) {%>
+		url(~"@{f}ttf") format('truetype'),
+<% } %>
+<% if (font.types.indexOf('svg') >= 0) {%>
+		url(~"@{f}svg#@{name}") format('svg');
+<% } %>
+		font-weight: @weight;
+		font-style: @style;
+	}
+}
+
+
+<% _.each( font.faces, function( face ){ %>
+.Embed<%- font.name %>( "<%- face.path %>", <%- face.weight %>, <%- face.style %> );
+<% }); %>
+
+.<%- font.name %>( @weight: normal, @style: normal ) {
+	font-family: "<%- font.name %>";
+	font-weight: @weight;
+	font-style: @style;
+}
