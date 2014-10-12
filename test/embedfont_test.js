@@ -32,7 +32,6 @@ function fileExists( path, msg  ){
 
 exports.embedfont = {
 
-	//tests based on the default embedfont task
 	convert: {
 		convert_ttf_to_ttf: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
 		convert_ttf_to_woff: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
