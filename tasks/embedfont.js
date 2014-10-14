@@ -32,7 +32,10 @@ module.exports = function( grunt ) {
 			fontTypes: ['ttf','woff','eot','svg']
 		});
 
+		var fontFamilies;
+
 		function execute(){
+			fontFamilies = [];
 			grunt.verbose.write( "[embedfont] Fonts:" );
 			grunt.verbose.writeln( JSON.stringify( task.data.fonts, undefined, "   ") );
 
@@ -55,6 +58,7 @@ module.exports = function( grunt ) {
 
 			queue.reduce( q.when, q(true) )
 					.then( function(){
+						outputStyles();
 						done();
 					} )
 					.fail( function( error ) {
@@ -136,7 +140,7 @@ module.exports = function( grunt ) {
 						});
 
 						//once conversions have successfully completed, build less/css/scss
-						makeStyle( name, options.fontTypes, faces );
+						addFontFamily( name, options.fontTypes, faces );
 
 						deferred.resolve();
 					} )
@@ -147,20 +151,23 @@ module.exports = function( grunt ) {
 			return deferred.promise;
 		}
 
-		function makeStyle( name, types, faces ){
-			var font = {
+		function addFontFamily( name, types, faces ){
+			fontFamilies.push( {
 				name: name,
-				types: options.fontTypes.slice(0),
 				faces: faces
-			};
+			} );
+		}
 
-			_.templateSettings.variable = "font";
+		function outputStyles(){
+
+			_.templateSettings.variable = "data";
 
 			var templatePath = path.join(__dirname, "../templates/style", options.output+".template" );
 			if ( grunt.file.exists( templatePath ) ){
 				var template = _.template( grunt.file.read( templatePath ) );
-				var style = template( font );
-				grunt.file.write( path.join( options.stylePath, name+"."+options.output ), style )
+				var style = template( { families: fontFamilies, types: options.fontTypes.slice(0) } );
+				var filename = [ task.target, 'fonts' ].join('-');
+				grunt.file.write( path.join( options.stylePath, filename+"."+options.output ), style );
 			}
 			else{
 				throw new Error("Couldn't find "+options.output+".template");

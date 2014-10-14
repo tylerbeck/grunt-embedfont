@@ -1,0 +1,53 @@
+
+
+.EmbedOpenSans( @path, @weight: normal, @style: normal ){
+	@font-face {
+		@f: ~"@{path}.";
+		@name: OpenSans;
+		font-family: 'OpenSans';
+		src: url(~"@{f}eot");
+		src: url(~"@{f}eot?#iefix") format('embedded-opentype'),
+			 url(~"@{f}woff") format('woff'),
+			 url(~"@{f}ttf") format('truetype'),
+			 url(~"@{f}svg#@{name}") format('svg');
+		font-weight: @weight;
+		font-style: @style;
+	}
+}
+
+.EmbedOpenSans( "../fonts/OpenSans/OpenSans-Light", 200, normal );
+
+
+.OpenSans( @weight: normal, @style: normal ) {
+	font-family: "OpenSans";
+	font-weight: @weight;
+	font-style: @style;
+}
+
+
+
+.EmbedQuicksand( @path, @weight: normal, @style: normal ){
+	@font-face {
+		@f: ~"@{path}.";
+		@name: Quicksand;
+		font-family: 'Quicksand';
+		src: url(~"@{f}eot");
+		src: url(~"@{f}eot?#iefix") format('embedded-opentype'),
+			 url(~"@{f}woff") format('woff'),
+			 url(~"@{f}ttf") format('truetype'),
+			 url(~"@{f}svg#@{name}") format('svg');
+		font-weight: @weight;
+		font-style: @style;
+	}
+}
+
+.EmbedQuicksand( "../fonts/Quicksand/Quicksand-Light", 200, normal );
+
+
+.Quicksand( @weight: normal, @style: normal ) {
+	font-family: "Quicksand";
+	font-weight: @weight;
+	font-style: @style;
+}
+
+

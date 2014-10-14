@@ -41,13 +41,21 @@ exports.embedfont = {
 		convert_otf_to_ttf: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
 		convert_otf_to_woff: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
 		convert_otf_to_eot: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
-		convert_otf_to_svg: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source.")
+		convert_otf_to_svg: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source."),
+
+		less_generated: function( test ){
+			var expected = grunt.file.read("test/fixtures/less/convert-fonts.less");
+			var actual = grunt.file.read("tmp/convert/less/convert-fonts.less");
+			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
+			test.done();
+		}
+
 	},
 
 	css: {
 		css_generated: function( test ){
-			var expected = grunt.file.read("test/fixtures/css/OpenSans.css");
-			var actual = grunt.file.read("tmp/css/css/OpenSans.css");
+			var expected = grunt.file.read("test/fixtures/css/css-fonts.css");
+			var actual = grunt.file.read("tmp/css/css/css-fonts.css");
 			test.equal( actual, expected, "The generated CSS does not match the expected CSS.");
 			test.done();
 		}
@@ -55,11 +63,12 @@ exports.embedfont = {
 
 	less: {
 		less_generated: function( test ){
-			var expected = grunt.file.read("test/fixtures/less/OpenSans.less");
-			var actual = grunt.file.read("tmp/less/less/OpenSans.less");
+			var expected = grunt.file.read("test/fixtures/less/less-fonts.less");
+			var actual = grunt.file.read("tmp/less/less/less-fonts.less");
 			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
 			test.done();
 		}
-	}
+	},
+
 
 };
