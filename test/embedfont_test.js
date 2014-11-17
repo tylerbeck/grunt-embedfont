@@ -68,7 +68,7 @@ exports.embedfont = {
 			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
 			test.done();
 		}
-	},
+	}
 
 
 };
