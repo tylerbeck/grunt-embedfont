@@ -1,7 +1,7 @@
 {
   "name": "grunt-embedfont",
   "description": "Create web-embeddable font files and css.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/tylerbeck/grunt-embedfont",
   "author": {
     "name": "Tyler Beck",

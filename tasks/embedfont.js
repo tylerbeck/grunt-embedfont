@@ -44,9 +44,9 @@ module.exports = function( grunt ) {
 			var done = task.async();
 			var queue = [];
 
-			if ( !fonts || fontNames.length == 0 ){
+			/*if ( !fonts || fontNames.length == 0 ){
 				grunt.fail.warn("At least one font must be configured")
-			}
+			}*/
 
 			fontNames.forEach( function( name ){
 				grunt.log.writeln('[embedfont] '+name);
