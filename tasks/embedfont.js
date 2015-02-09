@@ -11,6 +11,7 @@
 module.exports = function( grunt ) {
 
 	var FontConverter = require('../modules/FontConverter');
+	var NodeFontConverter = require('../modules/NodeFontConverter');
 	var _ = require('lodash');
 	var path = require('path');
 	var q = require('q');
@@ -27,6 +28,7 @@ module.exports = function( grunt ) {
 			stylePath: 'style',
 			relPath: '../fonts',
 			output: 'less',
+			engine: 'fontforge',
 			reformatNames: true,
 			reformatFn: getFontName,
 			fontTypes: ['ttf','woff','eot','svg']
@@ -112,7 +114,15 @@ module.exports = function( grunt ) {
 
 					grunt.verbose.writeln('              name: '+fontName);
 
-					var converter = new FontConverter();
+
+					var converter;
+					if ( options.engine === 'fontforge' ){
+						converter = new FontConverter();
+					}
+					else{
+						converter = new NodeFontConverter();
+					}
+
 					converter.load( source );
 
 					//add conversion to queue for each font type

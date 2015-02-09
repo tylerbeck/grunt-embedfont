@@ -53,7 +53,7 @@ var FontConverter = function( options ){
 			//TODO: verify destPath is valid font format
 
 			//ensure folder exists
-			fs.mkdirs( path.dirname( destination ) );
+			fs.mkdirsSync( path.dirname( destination ) );
 			exec(   "fontforge -lang=ff -c 'Open($1); Generate($2)' '"+sourcePath+"' '"+destPath+"'",
 					function( error, stdout, stderr ){
 

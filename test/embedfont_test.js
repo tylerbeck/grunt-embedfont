@@ -32,20 +32,41 @@ function fileExists( path, msg  ){
 
 exports.embedfont = {
 
-	convert: {
-		convert_ttf_to_ttf: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
-		convert_ttf_to_woff: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
-		convert_ttf_to_eot: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.eot", "EOT fonts should have be generated from TTF source."),
-		convert_ttf_to_svg: fileExists( "tmp/convert/fonts/OpenSans/OpenSans-Light.svg", "SVG fonts should have be generated from TTF source."),
+	node: {
+		node_convert_ttf_to_ttf: fileExists( "tmp/node/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
+		node_convert_ttf_to_woff: fileExists( "tmp/node/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
+		node_convert_ttf_to_eot: fileExists( "tmp/node/fonts/OpenSans/OpenSans-Light.eot", "EOT fonts should have be generated from TTF source."),
+		node_convert_ttf_to_svg: fileExists( "tmp/node/fonts/OpenSans/OpenSans-Light.svg", "SVG fonts should have be generated from TTF source."),
 
-		convert_otf_to_ttf: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
-		convert_otf_to_woff: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
-		convert_otf_to_eot: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
-		convert_otf_to_svg: fileExists( "tmp/convert/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source."),
+		//TODO: find a way to support otf in node engine
+		//node_convert_otf_to_ttf: fileExists( "tmp/node/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
+		//node_convert_otf_to_woff: fileExists( "tmp/node/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
+		//node_convert_otf_to_eot: fileExists( "tmp/node/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
+		//node_convert_otf_to_svg: fileExists( "tmp/node/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source."),
 
 		less_generated: function( test ){
-			var expected = grunt.file.read("test/fixtures/less/convert-fonts.less");
-			var actual = grunt.file.read("tmp/convert/less/convert-fonts.less");
+			var expected = grunt.file.read("test/fixtures/less/node-fonts.less");
+			var actual = grunt.file.read("tmp/node/less/node-fonts.less");
+			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
+			test.done();
+		}
+
+	},
+
+	fontforge: {
+		fontforge_convert_ttf_to_ttf: fileExists( "tmp/fontforge/fonts/OpenSans/OpenSans-Light.ttf", "TTF fonts should have be generated from TTF source."),
+		fontforge_convert_ttf_to_woff: fileExists( "tmp/fontforge/fonts/OpenSans/OpenSans-Light.woff", "WOFF fonts should have be generated from TTF source."),
+		fontforge_convert_ttf_to_eot: fileExists( "tmp/fontforge/fonts/OpenSans/OpenSans-Light.eot", "EOT fonts should have be generated from TTF source."),
+		fontforge_convert_ttf_to_svg: fileExists( "tmp/fontforge/fonts/OpenSans/OpenSans-Light.svg", "SVG fonts should have be generated from TTF source."),
+
+		fontforge_convert_otf_to_ttf: fileExists( "tmp/fontforge/fonts/Quicksand/Quicksand-Light.ttf", "TTF fonts should have be generated from OTF source."),
+		fontforge_convert_otf_to_woff: fileExists( "tmp/fontforge/fonts/Quicksand/Quicksand-Light.woff", "WOFF fonts should have be generated from OTF source."),
+		fontforge_convert_otf_to_eot: fileExists( "tmp/fontforge/fonts/Quicksand/Quicksand-Light.eot", "EOT fonts should have be generated from OTF source."),
+		fontforge_convert_otf_to_svg: fileExists( "tmp/fontforge/fonts/Quicksand/Quicksand-Light.svg", "SVG fonts should have be generated from OTF source."),
+
+		less_generated: function( test ){
+			var expected = grunt.file.read("test/fixtures/less/fontforge-fonts.less");
+			var actual = grunt.file.read("tmp/fontforge/less/fontforge-fonts.less");
 			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
 			test.done();
 		}
