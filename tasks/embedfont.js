@@ -50,22 +50,24 @@ module.exports = function( grunt ) {
 				grunt.fail.warn("At least one font must be configured")
 			}*/
 
-			fontNames.forEach( function( name ){
-				grunt.log.writeln('[embedfont] '+name);
-				queue.push( function(){
-					return makeEmbeddable( name, fonts[name] );
-				});
-			});
-
-
-			queue.reduce( q.when, q(true) )
-					.then( function(){
-						outputStyles();
-						done();
-					} )
-					.fail( function( error ) {
-						grunt.fail.warn( error );
+			if (fontNames.length > 0 ){
+				fontNames.forEach( function( name ){
+					grunt.log.writeln('[embedfont] '+name);
+					queue.push( function(){
+						return makeEmbeddable( name, fonts[name] );
 					});
+				});
+
+
+				queue.reduce( q.when, q(true) )
+						.then( function(){
+							outputStyles();
+							done();
+						} )
+						.fail( function( error ) {
+							grunt.fail.warn( error );
+						});
+			}
 
 		}
 
