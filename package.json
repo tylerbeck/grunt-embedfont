@@ -27,6 +27,7 @@
     "test": "grunt test"
   },
   "devDependencies": {
+    "grunt-bump": "^0.3.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"
