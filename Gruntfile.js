@@ -31,12 +31,13 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     embedfont: {
-	    convert: {
+	    fontforge: {
 		    options:{
-			    fontPath: 'tmp/convert/fonts',
-			    stylePath: 'tmp/convert/less',
+			    fontPath: 'tmp/fontforge/fonts',
+			    stylePath: 'tmp/fontforge/less',
 			    relPath: '../fonts',
 			    output: 'less',
+			    engine: 'fontforge',
 			    reformatNames: false,
 			    fontTypes: ['ttf','woff', 'eot','svg']
 		    },
@@ -49,6 +50,25 @@ module.exports = function(grunt) {
 			    Quicksand: {
 				    normal: {
 					    '200': 'test/fixtures/fonts/Quicksand/Quicksand-Light.otf'
+				    }
+			    }
+		    }
+
+	    },
+	    node: {
+		    options:{
+			    fontPath: 'tmp/node/fonts',
+			    stylePath: 'tmp/node/less',
+			    relPath: '../fonts',
+			    output: 'less',
+			    engine: 'node',
+			    reformatNames: false,
+			    fontTypes: ['ttf','woff', 'eot','svg']
+		    },
+		    fonts: {
+			    OpenSans: {
+				    normal: {
+					    '200': 'test/fixtures/fonts/OpenSans/OpenSans-Light.ttf'
 				    }
 			    }
 		    }

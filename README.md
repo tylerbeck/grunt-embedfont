@@ -32,9 +32,10 @@ npm install grunt-embedfont --save-dev
 
 ### Windows
 
-Not currently supported; future plans include utilizing a node-only font conversion engine.
-
-
+```
+npm install grunt-embedfont --save-dev
+```
+*windows users should use the node font engine setting.  The node engine currently only supports converting from ttf source fonts
 
 ## GruntFile
 
@@ -58,6 +59,7 @@ grunt.initConfig({
 		    stylePath: 'assets/less',
 		    relPath: '../fonts',
 		    output: 'less',
+		    engine: 'fontforge'
 	    },
 	    fonts: {
 		    FontFamilyOne: {
@@ -111,6 +113,13 @@ Possible values: `'less'` `'css'`
 
 The format of stylesheet to output.
 
+#### options.engine
+Type: `String`
+Default value: `'fontforge'`
+Possible values: `'fontforge'` `'node'`
+
+The node engine can currently only convert from ttf source fonts.
+
 #### options.reformatNames
 Type: `Boolean`
 Default value: `true`
@@ -140,3 +149,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 0.1.0
+0.2.0
