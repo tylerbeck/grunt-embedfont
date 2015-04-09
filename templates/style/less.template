@@ -2,7 +2,7 @@
 
 .Embed<%- font.name %>( @path, @weight: normal, @style: normal ){
 	@font-face {
-		@f: ~"@{path.replace(/\\/g,''/')}.";
+		@f: ~"@{path}.";
 		@name: <%- font.name %>;
 		font-family: '<%- font.name %>';
 		<% if (data.types.indexOf('eot') >= 0) { %>src: url(~"@{f}eot");<% } %>
