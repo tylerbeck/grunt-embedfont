@@ -2,7 +2,7 @@
 
 .Embed<%- font.name %>( @path, @weight: normal, @style: normal ){
 	@font-face {
-		@f: ~"@{path}.";
+		@f: ~"@{path.replace(/\\/g,''/')}.";
 		@name: <%- font.name %>;
 		font-family: '<%- font.name %>';
 		<% if (data.types.indexOf('eot') >= 0) { %>src: url(~"@{f}eot");<% } %>
@@ -15,7 +15,7 @@
 	}
 }
 
-<% _.each( font.faces, function( face ){ %>.Embed<%- font.name %>( "<%- face.path %>", <%- face.weight %>, <%- face.style %> );
+<% _.each( font.faces, function( face ){ %>.Embed<%- font.name %>( "<%= face.path.replace(/[\\\/]/g,'/') %>", <%- face.weight %>, <%- face.style %> );
 <% }); %>
 
 .<%- font.name %>( @weight: normal, @style: normal ) {

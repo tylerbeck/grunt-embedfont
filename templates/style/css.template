@@ -1,11 +1,11 @@
 <% _.each( data.families, function( font ){ %>
 <% _.each( font.faces, function( face ){ %>@font-face {
     font-family: '<%- font.name %>';
-    <% if (data.types.indexOf('eot') >= 0) { %>src: url(<%- face.path %>.eot);<% } %>
-    src: <% if (data.types.indexOf('eot') >= 0) { %>url(<%- face.path %>.eot?#iefix) format('embedded-opentype'),
-         <% } %><% if (data.types.indexOf('woff') >= 0) {%>url(<%- face.path %>.woff) format('woff'),
-         <% } %><% if (data.types.indexOf('ttf') >= 0) {%>url(<%- face.path %>.ttf) format('truetype'),
-         <% } %><% if (data.types.indexOf('svg') >= 0) {%>url(<%- face.path %>.svg#<%- font.name %>) format('svg')<% } %>;
+    <% if (data.types.indexOf('eot') >= 0) { %>src: url(<%- face.path.replace(/[\\\/]/g,'/') %>.eot);<% } %>
+    src: <% if (data.types.indexOf('eot') >= 0) { %>url(<%- face.path.replace(/[\\\/]/g,'/') %>.eot?#iefix) format('embedded-opentype'),
+         <% } %><% if (data.types.indexOf('woff') >= 0) {%>url(<%- face.path.replace(/[\\\/]/g,'/') %>.woff) format('woff'),
+         <% } %><% if (data.types.indexOf('ttf') >= 0) {%>url(<%- face.path.replace(/[\\\/]/g,'/') %>.ttf) format('truetype'),
+         <% } %><% if (data.types.indexOf('svg') >= 0) {%>url(<%- face.path.replace(/[\\\/]/g,'/') %>.svg#<%- font.name %>) format('svg')<% } %>;
     font-weight: <%- face.weight %>;
     font-style: <%- face.style %>;
 }
