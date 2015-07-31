@@ -2,4 +2,5 @@ language: node_js
 node_js:
   - "0.12.2"
 before_install:
+  - sudo apt-get install fontforge ttfautohint --with-python
   - npm install -g grunt-cli
