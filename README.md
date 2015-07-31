@@ -1,3 +1,5 @@
+![Travis](https://img.shields.io/travis/GitScrum/grunt-embedfont.svg)
+
 # grunt-embedfont
 
 > Create web-embeddable font files and css.
