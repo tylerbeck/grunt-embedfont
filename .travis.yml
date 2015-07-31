@@ -4,3 +4,4 @@ node_js:
 before_install:
   - sudo apt-get install fontforge
   - npm install -g grunt-cli
+script: grunt test
