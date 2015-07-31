@@ -1,0 +1,27 @@
+<% _.each( data.families, function( font ) { %>
+
+@mixin Embed<%- font.name %>( $path, $weight: normal, $style: normal ){
+	@font-face {
+		$f: "#{$path}.";
+		$name: <%- font.name %>;
+		font-family: '<%- font.name %>';
+		<% if (data.types.indexOf('eot') >= 0) { %>src: url("#{$f}eot");<% } %>
+		src: <% if (data.types.indexOf('eot') >= 0) { %>url("#{$f}eot?#iefix") format('embedded-opentype'),
+			 <% } %><% if (data.types.indexOf('woff') >= 0) { %>url("#{$f}woff") format('woff'),
+			 <% } %><% if (data.types.indexOf('ttf') >= 0) { %>url("#{$f}ttf") format('truetype'),
+			 <% } %><% if (data.types.indexOf('svg') >= 0) { %>url("#{$f}svg#{$name}") format('svg')<% } %>;
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
+
+<% _.each( font.faces, function( face ){ %>@include Embed<%- font.name %>( "<%= face.path.replace(/[\\\/]/g,'/') %>", <%- face.weight %>, <%- face.style %> );
+<% }); %>
+
+@mixin <%- font.name %>( $weight: normal, $style: normal ) {
+	font-family: "<%- font.name %>";
+	font-weight: $weight;
+	font-style: $style;
+}
+
+<% } ); %>
