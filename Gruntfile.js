@@ -121,6 +121,23 @@ module.exports = function(grunt) {
 						}
 					}
 				}
+			},
+			sass: {
+				options:{
+					fontPath: 'tmp/sass/fonts',
+					stylePath: 'tmp/sass/sass',
+					relPath: '../fonts',
+					output: 'scss',
+					reformatNames: false,
+					fontTypes: ['ttf','woff', 'eot','svg']
+				},
+				fonts: {
+					OpenSans: {
+						normal: {
+							'200': 'test/fixtures/fonts/OpenSans/OpenSans-Light.ttf'
+						}
+					}
+				}
 			}
 
 
