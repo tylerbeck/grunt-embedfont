@@ -3,8 +3,9 @@ node_js:
   - "0.12.2"
   - "0.10.0"
 os:
-  - linux
-  - osx
+  :windowsxp
+  :osx
+  :linux
 before_install:
   - sudo apt-get install fontforge
   - npm install -g grunt-cli
