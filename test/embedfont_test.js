@@ -49,11 +49,11 @@ exports.embedfont = {
 			var actual = grunt.file.read("tmp/node/less/node-fonts.less");
 			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
 			test.done();
-		}
+		},
 
 		sass_generated: function( test ){
 			var expected = grunt.file.read("test/fixtures/sass/sass-fonts.scss");
-			var actual = grunt.file.read("tmp/less/sass/sass-fonts.scss");
+			var actual = grunt.file.read("tmp/sass/sass/sass-fonts.scss");
 			test.equal( actual, expected, "The generated SASS does not match the expected SASS.");
 			test.done();
 		}
@@ -76,11 +76,11 @@ exports.embedfont = {
 			var actual = grunt.file.read("tmp/fontforge/less/fontforge-fonts.less");
 			test.equal( actual, expected, "The generated LESS does not match the expected LESS.");
 			test.done();
-		}
+		},
 
 		sass_generated: function( test ){
 			var expected = grunt.file.read("test/fixtures/sass/sass-fonts.scss");
-			var actual = grunt.file.read("tmp/less/sass/sass-fonts.scss");
+			var actual = grunt.file.read("tmp/sass/sass/sass-fonts.scss");
 			test.equal( actual, expected, "The generated SASS does not match the expected SASS.");
 			test.done();
 		}
@@ -108,7 +108,7 @@ exports.embedfont = {
 	sass: {
 		sass_generated: function( test ){
 			var expected = grunt.file.read("test/fixtures/sass/sass-fonts.scss");
-			var actual = grunt.file.read("tmp/less/sass/sass-fonts.scss");
+			var actual = grunt.file.read("tmp/sass/sass/sass-fonts.scss");
 			test.equal( actual, expected, "The generated SASS does not match the expected SASS.");
 			test.done();
 		}

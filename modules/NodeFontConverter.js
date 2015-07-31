@@ -87,7 +87,7 @@ var NodeFontConverter = function( options ){
 					out = new Buffer( ttf2eot( source ) );
 					break;
 				case '.svg':
-					out = new Buffer( ttf2svg( source ) );
+					out = new Buffer( ttf2svg( source ) ); // warrning meta is not defined !!!!
 					break;
 				default:
 					throw new Error("unsupported font type: "+destPath);

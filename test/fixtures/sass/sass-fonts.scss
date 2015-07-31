@@ -1,10 +1,10 @@
 
 
-@mixin EmbedBebasNeue( $path, $weight: normal, $style: normal ){
+@mixin EmbedOpenSans( $path, $weight: normal, $style: normal ){
 	@font-face {
 		$f: "#{$path}.";
-		$name: BebasNeue;
-		font-family: 'BebasNeue';
+		$name: OpenSans;
+		font-family: 'OpenSans';
 		src: url("#{$f}eot");
 		src: url("#{$f}eot?#iefix") format('embedded-opentype'),
 			 url("#{$f}woff") format('woff'),
@@ -15,15 +15,11 @@
 	}
 }
 
-@include EmbedBebasNeue( "../fonts/BebasNeue/BebasNeue Thin", 100, normal );
-@include EmbedBebasNeue( "../fonts/BebasNeue/BebasNeue Book", 200, normal );
-@include EmbedBebasNeue( "../fonts/BebasNeue/BebasNeue Light", 300, normal );
-@include EmbedBebasNeue( "../fonts/BebasNeue/BebasNeue Regular", 400, normal );
-@include EmbedBebasNeue( "../fonts/BebasNeue/BebasNeue Bold", 700, normal );
+@include EmbedOpenSans( "../fonts/OpenSans/OpenSans-Light", 200, normal );
 
 
-@mixin BebasNeue( $weight: normal, $style: normal ) {
-	font-family: "BebasNeue";
+@mixin OpenSans( $weight: normal, $style: normal ) {
+	font-family: "OpenSans";
 	font-weight: $weight;
 	font-style: $style;
 }
