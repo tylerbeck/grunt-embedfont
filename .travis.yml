@@ -1,25 +1,19 @@
 language: node_js
-env:
-  matrix:
-    :linux
-      node_js:
-        - "0.12.2"
-        - ">=0.8.0"
-      before_install:
-        - sudo apt-get install fontforge
-        - npm install -g grunt-cli
-    :osx
-      node_js:
-        - "0.12.2"
-        - ">=0.8.0"
-      before_install:
-        - brew install fontforge
-        - npm install -g grunt-cli
-    :windowsxp
-      node_js:
-        - "0.12.2"
-        - ">=0.8.0
-      before_install:
-        - brew install fontforge
-        - npm install -g grunt-cli
+os:
+  - linux
+  - osx
+node_js:
+  - "0.12.2"
+  - ">=0.8.0"
+matrix:
+  os: linux
+  env:
+    before_install:
+      - brew install fontforge
+      - npm install -g grunt-cli
+  os: osx
+  env:
+    before_install:
+      - sudo apt-get install fontforge
+      - npm install -g grunt-cli
 script: grunt test
