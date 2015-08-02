@@ -23,6 +23,22 @@ module.exports = function( grunt ) {
 
 		var task = this;
 
+		function getFontName( name, style, weight ){
+
+			var parts;
+
+			if( style.toLowerCase() === 'normal') {
+				parts = [ name, weight ];
+			}
+			else{
+				style = style.charAt( 0 ).toUpperCase() + style.slice( 1 );
+				parts = [ name, weight, style ];
+			}
+
+			return parts.join('-');
+
+		}
+
 		var options = task.options({
 			fontPath: 'fonts',
 			stylePath: 'style',
@@ -46,7 +62,7 @@ module.exports = function( grunt ) {
 			var done = task.async();
 			var queue = [];
 
-			if ( !fonts || fontNames.length == 0 ){
+			if ( !fonts || fontNames.length === 0 ){
 				//grunt.fail.warn("At least one font must be configured")
 				done();
 				return;
@@ -68,22 +84,6 @@ module.exports = function( grunt ) {
 					.fail( function( error ) {
 						grunt.fail.warn( error );
 					});
-
-		}
-
-		function getFontName(name, style, weight ){
-
-			var parts;
-
-			if( style.toLowerCase() == 'normal') {
-				parts = [ name, weight ];
-			}
-			else{
-				style = style.charAt( 0 ).toUpperCase() + style.slice( 1 );
-				parts = [ name, weight, style ];
-			}
-
-			return parts.join('-')
 
 		}
 

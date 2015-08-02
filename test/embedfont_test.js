@@ -27,7 +27,7 @@ function fileExists( path, msg  ){
 		var value = grunt.file.exists( path );
 		test.equal( value, true, "The file '"+path+"'  should exist."  );
 		test.done();
-	}
+	};
 }
 
 exports.embedfont = {

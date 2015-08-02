@@ -48,14 +48,18 @@ var FontConverter = function( options ){
 
 	self.convert = function( destination, callback ){
 		var deferred = q.defer();
-		var destPath = path.join( options.destinationBase, destination );
+		var destPath = path.resolve( destination );
 		if ( options.overwrite || !fs.existsSync(destPath) ){
 			//TODO: verify destPath is valid font format
+
+			console.log(sourcePath, destPath);
 
 			//ensure folder exists
 			fs.mkdirsSync( path.dirname( destination ) );
 			exec(   "fontforge -lang=ff -c 'Open($1); Generate($2)' '"+sourcePath+"' '"+destPath+"'",
 					function( error, stdout, stderr ){
+
+						console.log(error, stdout, stderr);
 
 						if (error instanceof Error){
 							deferred.reject( error );
@@ -64,7 +68,7 @@ var FontConverter = function( options ){
 							}
 						}
 
-						if (callback && typeof callback == "function"){
+						if (callback && typeof callback === "function"){
 							callback();
 						}
 
