@@ -43,19 +43,16 @@ var NodeFontConverter = function( options ){
 	var source;
 
 	function getSourceTTF( font ){
-		console.log( font );
+
 		var file;
 		var ext = path.extname( font ).toLowerCase();
 		switch( ext ){
 			case '.ttf':
-				//file = new Uint8Array( fs.readFileSync( font, { encoding: null } ) );
-				file = fs.readFileSync( font );
+				file = new Uint8Array( fs.readFileSync( font, { encoding: null } ) );
 				break;
 			default:
 				break;
-
 		}
-
 		return file;
 	}
 
@@ -80,16 +77,16 @@ var NodeFontConverter = function( options ){
 			var out;
 			switch ( ext ){
 				case '.ttf':
-					out = source;
+					out = new Buffer( source );
 					break;
 				case '.woff':
-					out = ttf2woff( source );
+					out = new Buffer( ttf2woff( source ) );
 					break;
 				case '.eot':
 					out = new Buffer( ttf2eot( source ) );
 					break;
 				case '.svg':
-					out = ttf2svg( source ); // warrning meta is not defined !!!!
+					out = new Buffer( ttf2svg( source ) );
 					break;
 				default:
 					throw new Error("unsupported font type: "+destPath);

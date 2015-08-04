@@ -52,14 +52,10 @@ var FontConverter = function( options ){
 		if ( options.overwrite || !fs.existsSync(destPath) ){
 			//TODO: verify destPath is valid font format
 
-			console.log(sourcePath, destPath);
-
 			//ensure folder exists
 			fs.mkdirsSync( path.dirname( destination ) );
 			exec(   "fontforge -lang=ff -c 'Open($1); Generate($2)' '"+sourcePath+"' '"+destPath+"'",
 					function( error, stdout, stderr ){
-
-						console.log(error, stdout, stderr);
 
 						if (error instanceof Error){
 							deferred.reject( error );
