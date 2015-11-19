@@ -43,6 +43,7 @@ var NodeFontConverter = function( options ){
 	var source;
 
 	function getSourceTTF( font ){
+
 		var file;
 		var ext = path.extname( font ).toLowerCase();
 		switch( ext ){
@@ -51,9 +52,7 @@ var NodeFontConverter = function( options ){
 				break;
 			default:
 				break;
-
 		}
-
 		return file;
 	}
 
@@ -91,7 +90,6 @@ var NodeFontConverter = function( options ){
 					break;
 				default:
 					throw new Error("unsupported font type: "+destPath);
-					break;
 			}
 
 			//if ( out !== undefined ){
@@ -100,7 +98,7 @@ var NodeFontConverter = function( options ){
 				//console.log( "out is buffer: "+( Buffer.isBuffer( out ) ) );
 				fs.writeFile( destination, out, function( err ){
 					if (err === null ){
-						if (callback && typeof callback == "function"){
+						if (callback && typeof callback === "function"){
 							callback();
 						}
 

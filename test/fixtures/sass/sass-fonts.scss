@@ -1,0 +1,27 @@
+
+
+@mixin EmbedOpenSans( $path, $weight: normal, $style: normal ){
+	@font-face {
+		$f: "#{$path}.";
+		$name: OpenSans;
+		font-family: 'OpenSans';
+		src: url("#{$f}eot");
+		src: url("#{$f}eot?#iefix") format('embedded-opentype'),
+			 url("#{$f}woff") format('woff'),
+			 url("#{$f}ttf") format('truetype'),
+			 url("#{$f}svg#{$name}") format('svg');
+		font-weight: $weight;
+		font-style: $style;
+	}
+}
+
+@include EmbedOpenSans( "../fonts/OpenSans/OpenSans-Light", 200, normal );
+
+
+@mixin OpenSans( $weight: normal, $style: normal ) {
+	font-family: "OpenSans";
+	font-weight: $weight;
+	font-style: $style;
+}
+
+

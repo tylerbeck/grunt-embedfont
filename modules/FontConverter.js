@@ -48,7 +48,7 @@ var FontConverter = function( options ){
 
 	self.convert = function( destination, callback ){
 		var deferred = q.defer();
-		var destPath = path.join( options.destinationBase, destination );
+		var destPath = path.resolve( destination );
 		if ( options.overwrite || !fs.existsSync(destPath) ){
 			//TODO: verify destPath is valid font format
 
@@ -64,7 +64,7 @@ var FontConverter = function( options ){
 							}
 						}
 
-						if (callback && typeof callback == "function"){
+						if (callback && typeof callback === "function"){
 							callback();
 						}
 

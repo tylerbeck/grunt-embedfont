@@ -1,3 +1,5 @@
+![Travis](https://img.shields.io/travis/GitScrum/grunt-embedfont.svg)
+
 # grunt-embedfont
 
 > Create web-embeddable font files and css.
@@ -109,7 +111,7 @@ The relative path from the style directory to font directory.
 #### options.output
 Type: `String`
 Default value: `'less'`
-Possible values: `'less'` `'css'`
+Possible values: `'less'` `'css'` `'sass'`
 
 The format of stylesheet to output.
 
